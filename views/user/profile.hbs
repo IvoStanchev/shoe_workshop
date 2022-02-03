@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles.css">
+    <title>Login Page</title>
+</head>
+
+<body>
+    {{>user_header}}
+    <main>
+        <div class="user-info">
+            <div>
+                {{#with username}}
+                <p>Email: <span>{{this.user}}</span></p> |
+                {{/with}}
+                {{#with userShoes.length}}
+                <p>My offers: <span>[{{this}}]</span></p> |
+                {{/with}}
+                <p><a href="/logout">Logout</a></p>
+            </div>
+            <div class="shoes">
+                {{#each userShoes}}
+                <div class="shoe">
+                    <img src="{{this.image}}">
+                    <h3>{{this.name}}<span>${{this.price}}</span></h3>
+                </div>
+                {{/each}}
+            </div>
+            <p class="total-profit">Total profit: <span>${{price}}</span></p>
+        </div>
+    </main>
+    {{>footer}}
+</body>
+
+</html>

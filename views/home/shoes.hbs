@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+
+<body>
+    {{>user_header}}
+    <main>
+
+        <div class="shoes">
+            {{#if shoes}}
+            {{#each shoes}}
+            <div class="shoe">
+                <img src="{{this.image}}">
+                <h3>{{this.name}}</h3>
+                <a href="/details/{{this._id}}">Buy it for ${{this.price}}</a>
+            </div>
+            {{/each }}
+            {{else}}
+            <h1>No shoes to display. Be the first to create a new offer...</h1>
+            {{/if}}
+        </div>
+    </main>
+    {{>footer}}
+
+</body>
+
+</html>

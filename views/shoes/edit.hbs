@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Course Page</title>
+</head>
+
+<body>
+    {{>user_header}}
+    <main>
+        <h1>Edit Offer</h1>
+        <p class="message"></p>
+        {{#with shoe}}
+        <form action="/edit/{{this._id}}?_method=PATCH" method="POST">
+            <div>
+                <input type="text" name="name" placeholder="Name..." value="{{this.name}}">
+            </div>
+            <div>
+                <input type="text" name="price" placeholder="Price..." value="${{this.price}}">
+            </div>
+            <div>
+                <input type="text" name="image" placeholder="Image url..." value="{{this.image}}">
+            </div>
+            <div>
+                <textarea name="description"
+                    placeholder="Give us some description about this offer...">{{this.description}}</textarea>
+            </div>
+            <div>
+                <input type="text" name="brand" placeholder="Brand..." value="{{this.brand}}">
+            </div>
+            {{/with}}
+            <div>
+                <button>Edit</button>
+            </div>
+        </form>
+    </main>
+    {{>footer}}
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Course Page</title>
+</head>
+
+<body>
+    {{>user_header}}
+    <main>
+        <div class="offer-details">
+            {{#with shoe}}
+            <h1>{{this.name}}</h1>
+            <div class="info">
+                <img src="{{this.image}}" alt="">
+                <div class="description">{{this.description}}
+                    <br>
+                    <br>
+                    <p> <strong>Buyers:</strong>{{this.buyers.length}}</p>
+                    <br>
+                    <p class="price">${{this.price}}</p>
+                </div>
+            </div>
+            {{/with}}
+            <div class="actions">
+                {{#if canEdit}}
+                {{#with shoe}}
+                <a href="/edit/{{this._id}}">Edit</a>
+                <a href="/details/delete/{{this._id}}">Delete</a>
+                {{/with}}
+                {{else}}
+                {{#if bought}}
+                <span>You bought it</span>
+                {{else}}
+                {{#with shoe}}
+                <a href="/details/buy/{{this._id}}">Buy</a>
+                {{/with}}
+                {{/if}}
+                {{/if}}
+            </div>
+            {{>footer}}
+        </div>
+    </main>
+</body>
+
+</html>

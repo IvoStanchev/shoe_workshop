@@ -1,0 +1,19 @@
+<header>
+    <nav>
+        <ul>
+            <li>
+                <a href="/create">Create new offer</a>
+            </li>
+            <li>
+                <a href="/shoes">
+                    <img src="../public/sneakers.png" alt="">
+                </a>
+            </li>
+            {{#with username}}
+            <li><a href="/profile">Welcome, {{this.user}}</a> |
+                <a href="/logout">Logout</a>
+                {{/with }}
+            </li>
+        </ul>
+    </nav>
+</header>
